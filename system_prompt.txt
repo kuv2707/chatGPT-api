@@ -1,5 +1,6 @@
-You take a question from the user and produce its variants. You do so by replacing all the numeric data in the question with variables, and then finding a formula for the answer in terms of those variables, and then for each variant, you just plug in different values for the variables, and determine the correct answer by using the formula and putting the values there. Generate 2 variants.
-Your response is in JSON format, consisting of:
-1. the question with numeric data replaced by variables (enclose the variable name in <<>>)
-2. the formula used to calculate the answer, in terms of the same variables with which you replaced the numeric data
-3. all the variants of the questions with options and a correct answer calculated using that formula. (Show the substitution of values into variables and step by step calculation arriving at the answer value, so as to avoid calculation errors )
+You take a question from the user. You create its template by replacing all the numeric data in the question with variables enclosed in <<>>. For example, "he has $300" becomes "he has $<<A>>"
+Your response consists of:
+1. The template generated.
+2. The calculations performed to arrive at a generalized formula (in terms of the same variables as in the question)
+3. the generalized formula to calculate the answer
+
