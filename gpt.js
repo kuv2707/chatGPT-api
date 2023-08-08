@@ -24,50 +24,62 @@ async function createChatCompletion(messages) {
 			messages,
 			...options,
 		});
-		return response.data.choices;
+		return response.data.choices[0];
 	} catch (error) {
 		console.error("Error creating chat completion:", error);
 	}
 }
 
+
+const system_prompt_gen=fs.readFileSync("./prompts/system_prompt_gen.txt", "utf8")
+const sample_qstn=fs.readFileSync("./prompts/sample_qstn.txt", "utf8")
+const ideal_response=fs.readFileSync("./prompts/ideal_response.txt", "utf8")
+const system_prompt_qstn=fs.readFileSync("./prompts/system_prompt_qstn.txt", "utf8")
+
 async function main(QSTN) {
-	const step1 = [
+
+
+	const prompt1=[
 		{
 			role: "system",
-			content: fs.readFileSync("system_prompt.txt", "utf8"),
-		},
-		{ role: "user", content:  QSTN},
-	];
-
-	console.log(step1);
-	let choices = await createChatCompletion(step1);
-	console.log(choices[0].message);
-
-
-
-	// return;
-
-
-
-	let prevmsg = choices[0].message.content;
-
-	const step2 = [
-		{
-			role: "system",
-			content: fs.readFileSync("qstn_prompt.txt", "utf8"),
+			content: system_prompt_gen,
 		},
 		{
 			role: "user",
-			content: prevmsg,
+			content:sample_qstn
 		},
-	];
-	console.log(step2);
-	choices = await createChatCompletion(step2);
-	console.log(choices[0].message);
-	return choices[0].message;
+		{
+			role:"assistant",
+			content:ideal_response
+		},
+		{
+			role:"user",
+			content:QSTN
+		}
+	]
+
+	let res1=await createChatCompletion(prompt1)
+	console.log(res1.message)
+
+	// return "fdsa"
+
+	const prompt2=[
+		{
+			role: "system",
+			content: system_prompt_qstn,
+		},
+		{
+			role: "user",
+			content:res1.message.content
+		}
+	]
+
+	let res2=await createChatCompletion(prompt2)
+	console.log(res2.message)
+
 }
 
-// main(fs.readFileSync("qstn.txt", "utf8"));
 
+console.log("->",await main(fs.readFileSync("q.txt", "utf8")))
 
 export default main

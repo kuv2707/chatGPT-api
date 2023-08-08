@@ -1,0 +1,13 @@
+prompt 1::creating generalized question
+    system: system_prompt_gen
+    user: SAMPLE qstn to be generalized
+    assistant: IDEAL response created by us
+    user: question to be generalized
+
+response 1::  generalized question
+
+prompt2::getting specific variations from the generalized format
+    system: system_prompt_qstn
+    user: generalized question from response 1
+
+response2:: list of variations in JSON

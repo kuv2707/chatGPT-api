@@ -1,0 +1,13 @@
+1. Rein, Inc. reported $<<A>> as deferred tax assets and $<<B>> as deferred tax liabilities at the beginning of Year 2. At the end of Year 2, Rein reported $<<C>> as deferred tax assets and $<<D>> as deferred tax liabilities. What should Rein report as deferred income tax expense or benefit at the end of Year 2?
+
+2. The calculation performed to arrive at the general formula is as follows:
+The deferred income tax expense or benefit is calculated by determining the change in the net deferred tax position from the beginning to the end of the year.
+At the beginning of the year, the net deferred tax position is (Deferred tax assets - Deferred tax liabilities) = (A - B)
+At the end of the year, the net deferred tax position is (Deferred tax assets - Deferred tax liabilities) = (C - D)
+
+The change in net deferred tax position is (C - D) - (A - B)
+
+3. The generalized formula to calculate the answer is:
+   Deferred Income Tax Expense or Benefit = (C - D) - (A - B)
+
+

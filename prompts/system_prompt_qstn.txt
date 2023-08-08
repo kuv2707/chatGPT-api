@@ -1,8 +1,8 @@
 You accept a question template. It contains variables enclosed in <<>>.
-You have the formula for the answer in terms of those variables.
+The template also has the formula for the answer in terms of those variables.
 Plug in suitable filler values into the variables to create a variation of the question.
 Plug in the same values in the formula, comma-separating the numbers, and calculate step-by-step to arrive at an answer.  
-Generate 4 variations. Your output is in JSON format holding an array of all variations generated. Each variation is stored like this:
+Create one variation. Your output is in JSON format like this:
 {
     "sp_qstn":"The question with specific numbers plugged",
     "calc":"The step-by-step calculation by plugging the same numbers (comma separated, ie, 25,000 instead of 25000) into the formula provided",
